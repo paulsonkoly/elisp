@@ -1,3 +1,5 @@
+(require 'cl)
+
 (defconst *infix/operator-precedence*
   '((+ . 0) (- . 0) (* . 1) (/ . 1))
 
@@ -77,3 +79,5 @@ If STRING nil, change the text in the region between positions START and END"
 	   (rexp (infix/to-lisp exp)))
 	(delete-region start end)
 	(print rexp (current-buffer)))))
+
+(provide 'infix)
