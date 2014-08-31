@@ -1,9 +1,18 @@
+;;; infix.el --- Arithmetic expression infix to lisp (prefix) rewriter
+
+;;; Commentary:
+;;
+;; Use at your own risk.  This will probably set your computer on fire.
+;; 
+
 (require 'cl)
+
+;;; Code:
 
 (defconst *infix/operator-precedence*
   '((+ . 0) (- . 0) (* . 1) (/ . 1))
 
-  "Association list of the operators and their precedence")
+  "Association list of the operators and their precedence.")
 
 
 (defun infix/find-lowest-precedence(exp)
@@ -81,3 +90,5 @@ If STRING nil, change the text in the region between positions START and END"
 	(print rexp (current-buffer)))))
 
 (provide 'infix)
+
+;;; infix.el ends here
