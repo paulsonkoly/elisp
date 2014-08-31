@@ -62,7 +62,7 @@ For example '(1 * 2 + 3) is rewritten as '(+ (* 1 2) 3)"
 (defun infix/rewrite-to-lisp(string &optional start end)
   "Rewrites a string from infix form to lisp ie : (1 * 2 + 3) => (+ (* 1 2) 3)
 
-When called interactively, work on current paragraph or text selection.
+When called interactively, work on current list or text selection.
 
 When called in lisp code, if STRING is non-nil, returns a changed string.
 If STRING nil, change the text in the region between positions START and END"
@@ -70,7 +70,7 @@ If STRING nil, change the text in the region between positions START and END"
   (interactive
    (if (use-region-p)
        (list nil (region-beginning) (region-end))
-     (let ((bds (bounds-of-thing-at-point 'paragraph)))
+     (let ((bds (bounds-of-thing-at-point 'list)))
        (list nil (car bds) (cdr bds)))))
 
   (if string
